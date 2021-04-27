@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Сайт реєстрації</title>
+        <link rel="stylesheet" href="../css/form.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.js"></script>
+    </head>
+
+    <body>
+        <div class="justify">
+        <div class = "main_border">
+            <form class="validate" novalidate>
+                <h2 id="header">Форма реєстрації випускників:</h2><br>
+                <div id="info">
+                    <label for="name">Ім'я</label><br>
+                    <input type="text" name="name" id="name"><br><br>
+
+                    <label for="surname">Прізвище</label><br>
+                    <input type="text" name="surname" id="surname"><br><br>
+
+                    <label for="email">Email</label><br>
+                    <input type="text" name="email" id="email"><br><br>
+
+                    <label for="password">Пароль</label><br>
+                    <input type="password" name="pass" id="password"><br><br>
+
+                    <p>Стать</p>
+                    <input type="radio" name="sex" value="male" id="male"><label for="male">Чоловіча</label>
+                    <input type="radio" name="sex" value="female" id="female"><label for="female">Жіноча</label><br><br>
+
+                    <label for="selector">Вкажіть рік випуску: </label>
+                    <select name="year" id="selector"></select><br>
+                </div>
+                <p id="submit"><input name="submit" type="submit" value="Зберегти" id="submit_button" ></p>  
+            </form>
+        </div>
+        </div>
+        <div class="dialog">
+            <button class="dialog-button">Допомога</button>
+            <div id="popup">
+                <div id="dialog-content">
+                    <p>Пошта повинна мати формат: example123@gmail.com</p>
+                    <button id="close">Закрити</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="response">
+            <div id="response-popup">
+                <div class="response-content">
+                    
+                </div>
+            </div>
+        </div>
+        <script type="module" src="../js/jqueryValidation.js"></script>
+        <script type="module" src="../js/form.js"></script>
+    </body>
+</html>
