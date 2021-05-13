@@ -64,9 +64,6 @@ function formJQuerySend(form){
 
 
     const formData = new FormData(form)
-    setTimeout(() => {
-        console.log(formData)
-    }, 3000)
     const data_obj = {}
 
     formData.forEach((value, key) =>{

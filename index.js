@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 5000;
   
 const app = express();
 
-const jsonParser = express.json();
+app.use(express.json())
 
 app.use(express.static(path.join(__dirname, 'public')))
 
@@ -15,7 +15,7 @@ app.get("/",function(request, response){
     response.sendFile(__dirname + "/public/html/index.html");
 })
 
-app.post("/form",  jsonParser ,function (request, response) {
+app.post("/form", function (request, response) {
     if(!request.body) return response.sendStatus(400);
     response.json(request.body); 
 });
