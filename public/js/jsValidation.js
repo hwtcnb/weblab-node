@@ -1,18 +1,18 @@
-let form = document.querySelector('#form')
-let email = document.querySelector('#email')
-let name = document.querySelector('#name')
-let surname  = document.querySelector('#surname')
-let pass = document.querySelector('#password')
+let form = document.querySelector('#form');
+let email = document.querySelector('#email');
+let name = document.querySelector('#name');
+let surname  = document.querySelector('#surname');
+let pass = document.querySelector('#password');
 
-let emailError = document.querySelector('.email-error')
-let nameError = document.querySelector('.name-error')
-let surnameError = document.querySelector('.surname-error')
-let passError = document.querySelector('.pass-error')
+let emailError = document.querySelector('.email-error');
+let nameError = document.querySelector('.name-error');
+let surnameError = document.querySelector('.surname-error');
+let passError = document.querySelector('.pass-error');
 
-let checker1 = 0
-let checker2 = 0
-let checker3 = 0
-let checker4 = 0
+let checker1 = 0;
+let checker2 = 0;
+let checker3 = 0;
+let checker4 = 0;
 
 const emailReg = /^[a-z0-9]+@[a-z]+\.[a-z]{2,4}$/;
 

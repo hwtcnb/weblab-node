@@ -1,8 +1,8 @@
 import {closePopup} from "./form.js";
 
 function formJSSend(form) {
-    const dataServer = document.createElement('p')
-    const serverStatus = document.createElement('p')
+    const dataServer = document.createElement('p');
+    const serverStatus = document.createElement('p');
     dataServer.classList.add('dataServer')
     serverStatus.classList.add('serverStatus')
     document.querySelector('.response-content').append(dataServer)
@@ -13,21 +13,21 @@ function formJSSend(form) {
     request.open('POST', '/form', true)
     request.setRequestHeader('Content-Type', 'application/json; charset=utf-8')
 
-    const formData = new FormData(form)
+    const formData = new FormData(form);
 
-    const data_obj = {}
+    const data_obj = {};
 
     formData.forEach((value, key) => {
         data_obj[key] = value
     })
 
-    const data = JSON.stringify(data_obj)
+    const data = JSON.stringify(data_obj);
 
     request.send(data)
 
     request.addEventListener('load', () => {
         if (request.status === 200) {
-            const data = JSON.parse(request.response)
+            const data = JSON.parse(request.response);
             dataServer.innerText = data.name +' '+ data.surname +' '+ data.email +' '+ data.pass +' '+ data.sex +' '+ data.year;
             serverStatus.textContent = request.statusText
             form.reset()
@@ -54,8 +54,8 @@ function formJQuerySend(form){
         failure : "Failure!"
     }
 
-    const dataServer = document.createElement('p')
-    const serverStatus = document.createElement('p')
+    const dataServer = document.createElement('p');
+    const serverStatus = document.createElement('p');
     dataServer.classList.add('dataServer')
     serverStatus.classList.add('serverStatus')
     document.querySelector('.response-content').append(dataServer)
@@ -63,8 +63,8 @@ function formJQuerySend(form){
     serverStatus.textContent = messages.loading
 
 
-    const formData = new FormData(form)
-    const data_obj = {}
+    const formData = new FormData(form);
+    const data_obj = {};
 
     formData.forEach((value, key) =>{
         data_obj[key] = value
