@@ -1,4 +1,6 @@
+const { response } = require("express");
 const express = require("express");
+const { request } = require("http");
 const path = require("path");
 const pool = require("./db");
 
@@ -26,13 +28,36 @@ app.post("/form", async(request, response) => {
         "INSERT INTO users (name, surname, email, password, sex, year) VALUES($1, $2, $3, $4, $5, $6)",
         [name, surname, email, password, sex, year]
     )
-    response.json(request.body); 
+    response.json(request.body);
 
 });
+
+app.get("/database", async(req, res) => {
+    let Users = await pool.query(
+        "SELECT * FROM users"
+    )
+    Users = Users.rows;
+    res.json(Users);
+});
+
+app.get("/database/:id", async(req, res) => {
+    const { id } = req.params;
+    let User = await pool.query(
+        "SELECT * FROM users WHERE user_id = $1",
+        [id]
+    )
+    
+    res.json(User.rows[0]);
+})
   
 app.get("/form", (request, response) => {
     response.sendFile(__dirname + "/public/html/form.html");
 });
+
+app.delete("/delete/:id", (req, res) => {
+    const { id } = req.params;
+
+})
 
 app.listen(PORT, () => {
     console.log(`Server started on port: ${PORT}`);

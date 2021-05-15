@@ -96,7 +96,7 @@ select, input{
 
 .dialog-button{
     height: 50px;
-    width: 100px;
+    width: auto;
     font-size: medium; 
     border: none; 
     border-radius: 20px;
@@ -144,3 +144,6 @@ span{
     outline: none;
 }
 
+.db_info{
+    margin-top: 10px;
+}

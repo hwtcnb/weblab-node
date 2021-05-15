@@ -24,4 +24,15 @@ for (let i = 2000; i <= now.getFullYear(); i++) {
    select.appendChild(el) 
 }
 
+function getID() {
+   const id = prompt('Enter id')
+   const href = document.querySelector('#href')
+   href.setAttribute('href', `/database/${id}`)
+}
+
+const button = document.querySelector('#href_button');
+button.addEventListener('click', () => {
+   getID()
+})
+
 export {openPopup, closePopup}
