@@ -1,6 +1,4 @@
-const { response } = require("express");
 const express = require("express");
-const { request } = require("http");
 const path = require("path");
 const pool = require("./db");
 
