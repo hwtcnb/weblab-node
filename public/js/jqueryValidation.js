@@ -3,12 +3,16 @@ import {formJSSend, formJQuerySend} from './request-send.js';
 
 let person = {}
 
+$.validator.addMethod("special", function(value, element) {
+    return this.optional(element) || !/[!@#$%^&*()_=\[\]{};':"\\|,.<>\/?+-]/i.test(value);
+  }, "Не повинно бути запретних символів");
+
 $('.validate').validate({
     rules: {
-
         name: {
             required: true,
-            minlength: 2 
+            minlength: 2,
+            special: true
         },
         email:{
             required: true,
@@ -16,7 +20,8 @@ $('.validate').validate({
         },
         surname:{
             minlength: 2,
-            required: true
+            required: true,
+            special: true
         },
         pass:{
             required: true,
@@ -29,7 +34,8 @@ $('.validate').validate({
 
         name:{
             required: "<br><span>Поле не повинно бути порожнім!</span>",
-            minlength: "<br><span>Занадто коротке ім'я!</span>"
+            minlength: "<br><span>Занадто коротке ім'я!</span>",
+            special: "<br><span>Не повинно бути спецсимволів!</span>"
         },
         email:{
             required: "<br><span>Поле не повинно бути порожнім!</span>",
@@ -37,7 +43,8 @@ $('.validate').validate({
         },
         surname:{
             required: "<br><span>Поле не повинно бути порожнім!</span>",
-            minlength: "<br><span>Занадто коротке прізвище!</span>"
+            minlength: "<br><span>Занадто коротке прізвище!</span>",
+            special: "<br><span>Не повинно бути спецсимволів!</span>"
         },
         pass:{
             required: "<br><span>Поле не повинно бути порожнім!</span>",
@@ -56,7 +63,6 @@ $('.validate').validate({
             person = formJSSend(form)
         }
         openPopup('#response-popup')
-        console.log(person)
     }
 })
 
