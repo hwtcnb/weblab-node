@@ -70,5 +70,15 @@ getSome.addEventListener('click', () => {
    href.setAttribute('href', `/databasecount/${count}`)
 })
 
+const counter = document.querySelector('#count_button')
+counter.addEventListener('click', () => {
+   $.ajax({
+      url: '/databasecounter',
+      type: 'GET',
+      success: function (result) {
+         alert('Кількість записів у базі: ' + result)
+      }
+   })
+})
 
 export {openPopup, closePopup}

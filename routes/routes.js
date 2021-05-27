@@ -10,4 +10,5 @@ router.delete('/database/:id', UserController.deleteUserById)
 router.put('/database/:id/:column/:edit', UserController.updateUserById)
 router.get('/database10', UserController.getTen)
 router.get('/databasecount/:count', UserController.getSome)
+router.get('/databasecounter', UserController.getCounter)
 module.exports = router;

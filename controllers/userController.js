@@ -93,12 +93,22 @@ class UserController{
 
     async getSome(req, res){
         const { count } = req.params
-        console.log(count)
          try {
             const users = await pool.query(
                 "SELECT * FROM users WHERE user_id > 0 LIMIT $1", [count]
             )
             res.json(users.rows)
+        } catch (error) {
+            console.error(error.message)
+        }
+    }
+
+    async getCounter(req, res){
+        try {
+            const counter = await pool.query(
+                "SELECT COUNT(*) as count FROM users"
+            )
+            res.json(counter.rows[0].count)
         } catch (error) {
             console.error(error.message)
         }
