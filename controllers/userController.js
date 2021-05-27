@@ -1,3 +1,4 @@
+const { rawListeners } = require("../model/db");
 const pool = require("../model/db");
 
 class UserController{
@@ -74,6 +75,30 @@ class UserController{
                 res.sendStatus(200)
             }
             else res.send('User not found!')
+        } catch (error) {
+            console.error(error.message)
+        }
+    }
+
+    async getTen(req, res){
+        try {
+            const users = await pool.query(
+                "SELECT * FROM users WHERE user_id > 0 LIMIT 10"
+            )
+            res.json(users.rows)
+        } catch (error) {
+            console.error(error.message)
+        }
+    }
+
+    async getSome(req, res){
+        const { count } = req.params
+        console.log(count)
+         try {
+            const users = await pool.query(
+                "SELECT * FROM users WHERE user_id > 0 LIMIT $1", [count]
+            )
+            res.json(users.rows)
         } catch (error) {
             console.error(error.message)
         }

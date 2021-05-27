@@ -63,5 +63,12 @@ updateButton.addEventListener('click', () => {
    })
 })
 
+const getSome = document.querySelector('#getSome')
+getSome.addEventListener('click', () => {
+   const count = prompt('How much?')
+   const href = document.querySelector('#getSometh')
+   href.setAttribute('href', `/databasecount/${count}`)
+})
+
 
 export {openPopup, closePopup}
